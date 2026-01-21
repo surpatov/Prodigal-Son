@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Door
+  - Door_Front
+  - Door_Back
+  - Camera_hand
+  - Item
+  - Comode
+  - Cupboard_door
+  - Slees_box
+  - Pickapable
+  - Sounds
+  - Music
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Monster
+  - Floor
+  - IgnoreCollider
+  - WallCollider
+  - Hands
+  - Lamp
+  - MonsterIgnore
+  - Global Volume
+  - Door
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - UserInterface
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
