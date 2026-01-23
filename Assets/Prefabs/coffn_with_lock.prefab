@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 392826354472384572}
   - component: {fileID: 392826354472384570}
   - component: {fileID: 392826354472384571}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,8 +111,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392826354472384569}
   m_LocalRotation: {x: 0.56356114, y: 0.3852113, z: 0.54001904, w: 0.49233186}
-  m_LocalPosition: {x: 1.6724393, y: 4.719983, z: 1.0978845}
-  m_LocalScale: {x: 10.578936, y: 10.579206, z: 10.15945}
+  m_LocalPosition: {x: 1.6999, y: 4.7762, z: 0.81358}
+  m_LocalScale: {x: 11.514113, y: 11.514408, z: 11.057545}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7240564127233750999}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 8454754757044328308}
   - component: {fileID: 8454754757044328307}
   - component: {fileID: 8454754757044328306}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: lid
   m_TagString: Pickapable
   m_Icon: {fileID: 0}
@@ -1114,7 +1114,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9016212634000926637}
-  m_LocalRotation: {x: -0.00000003774895, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.74199474, y: 0.117961556, z: 0.08228883}
   m_LocalScale: {x: 0.9933957, y: 0.9933957, z: 0.953955}
   m_ConstrainProportionsScale: 0

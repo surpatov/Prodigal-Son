@@ -22,36 +22,11 @@ public class MonsterGoPoint : Monster_State
     }
     public override void Update()
     {
-        Seek();
-        if (Vector3.Distance(agent.transform.position, agent.destination) < 0.5f)
+        monster.Seek(false);
+        if (monster.IsNearToPoint(agent.destination))
         {
             if (pointTo.GetComponent<Item>())
                 fsm.SetState<MonsterPickUp>();
-        }
-    }
-    private void Seek()
-    {
-        RaycastHit[] hits = Physics.BoxCastAll(monster.head.transform.position, new Vector3(15f, 15f, 15f), monster.gameObject.transform.forward, Quaternion.identity, 1f);
-
-        foreach (RaycastHit hit in hits)
-        {
-            if (hit.collider.GetComponent<PlayerController>() || hit.collider.GetComponent<Item>())
-            {
-                float realAngle = Vector3.Angle(monster.head.transform.forward, hit.transform.position - monster.head.transform.position);
-                if (realAngle <= monster.GetView / 2f)
-                {
-                    RaycastHit raycastHit;
-                    if (Physics.Linecast(monster.gameObject.transform.position, hit.transform.position, out raycastHit))
-                    {
-                        if (raycastHit.collider.GetComponent<PlayerController>())
-                        {
-                            monster.player = hit.collider.gameObject;
-                            fsm.SetState<MonsterAttack>();
-                            monster.patience = monster.patienceMax;
-                        }
-                    }
-                }
-            }
         }
     }
 }

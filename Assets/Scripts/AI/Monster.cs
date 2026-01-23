@@ -37,6 +37,8 @@ public class Monster : MonoBehaviour
 
     [SerializeField] private Transform pointDamaging;
 
+    [SerializeField] private float distanceToPoint;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
@@ -104,4 +106,61 @@ public class Monster : MonoBehaviour
         }
     }
     public void GetDamaged() { fsm.SetState<MonsterDamaging>(); }
+    public void Seek(bool withItem)
+    {
+        RaycastHit[] hits = Physics.BoxCastAll(head.transform.position, new Vector3(15f, 15f, 15f), transform.forward, Quaternion.identity, 1f);
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.GetComponent<PlayerController>())
+            {
+                if (DetectPlayer(hit)) break;
+            }
+            else if (withItem && hit.collider.GetComponent<Item>())
+            {
+                if (DetectItem(hit)) break;
+            }
+        }
+    }
+    private bool DetectPlayer(RaycastHit _hit)
+    {
+        float realAngle = Vector3.Angle(head.transform.forward, _hit.transform.position - head.transform.position);
+        if (realAngle <= GetView / 2f)
+        {
+            RaycastHit raycastHit;
+            if (Physics.Linecast(gameObject.transform.position, _hit.transform.position, out raycastHit))
+            {
+                if (raycastHit.collider.GetComponent<PlayerController>())
+                {
+                    Debug.Log("DETECT");
+                    player = raycastHit.collider.gameObject;
+                    fsm.SetState<MonsterAttack>();
+                    patience = patienceMax;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private bool DetectItem(RaycastHit _hit)
+    {
+        float realAngle = Vector3.Angle(head.transform.forward, _hit.transform.position - head.transform.position);
+        if (realAngle <= GetView / 2f)
+        {
+            RaycastHit raycastHit;
+            if (Physics.Linecast(gameObject.transform.position, _hit.transform.position, out raycastHit))
+            {
+                if (raycastHit.collider.GetComponent<Item>() && CanDetectItem())
+                {
+                    point = raycastHit.collider.gameObject;
+                    fsm?.SetState<MonsterGoPoint>();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private bool CanDetectItem() => fsm.currentState.GetType() != typeof(MonsterAttack) && fsm.currentState.GetType() != typeof(MonsterPickUp) && item == null;
+    public bool IsNearToPoint(Vector3 point) => Vector3.Distance(agent.transform.position, point) <= distanceToPoint;
 }

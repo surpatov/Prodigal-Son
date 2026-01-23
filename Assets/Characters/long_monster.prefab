@@ -1141,7 +1141,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7896678582455428551, guid: 947510ade34761842bb360ef46d3b970, type: 3}
+  - {fileID: 2100000, guid: b8b87e1ac8612504d9eba7e6a27b6965, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1858,6 +1858,7 @@ MonoBehaviour:
   MAXTIMETRAP: 180
   canTrappin: 0
   pointDamaging: {fileID: 0}
+  distanceToPoint: 0.5
 --- !u!114 &74254357912128184
 MonoBehaviour:
   m_ObjectHideFlags: 0

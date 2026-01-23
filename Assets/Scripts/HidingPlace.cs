@@ -22,6 +22,7 @@ public class HidingPlace : MonoBehaviour
         cameras = cameraOff;
         player = playerObject;
         place.GetComponent<Camera>().enabled = true;
+        place.GetChild(0).GetComponent<Camera>().enabled = true;
         foreach (var camera in cameras) { camera.enabled = false; }
         player.gameObject.SetActive(false);
         textGUI = _text;
@@ -33,5 +34,6 @@ public class HidingPlace : MonoBehaviour
         player.gameObject.SetActive(true);
         foreach (var camera in cameras) { camera.enabled = true; }
         place.GetComponent<Camera>().enabled = false;
+        place.GetChild(0).GetComponent<Camera>().enabled = false;
     }
 }
