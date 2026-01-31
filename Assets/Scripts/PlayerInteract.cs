@@ -85,9 +85,7 @@ public class PlayerInteract : MonoBehaviour
         // Работа с гвоздем
         if (TryGetComponent<WoodNail>(out var woodNail))
             woodNail.Open(inventory.GetCurrentItem, inventory);
-        else ResetInventoryState();
-
-        if(TryGetComponent<Note>(out var note))
+        else if (TryGetComponent<Note>(out var note))
         {
             if (note.IsInvinsible)
                 inventory.GetCurrentItem?.GetComponent<Iron>().Press(note, inventory);

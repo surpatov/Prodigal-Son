@@ -413,7 +413,7 @@ Camera:
   m_GameObject: {fileID: 2351722680432207513}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 2
   m_GateFitMode: 2
@@ -427,8 +427,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
-  far clip plane: 8
+  near clip plane: 0.03
+  far clip plane: 100
   field of view: 81.20259
   orthographic: 0
   orthographic size: 5
@@ -692,7 +692,12 @@ MonoBehaviour:
   interact: {fileID: 2351722680432207503}
   anchor: {fileID: 0}
   source: {fileID: 2351722680852154887}
-  footStepClip: {fileID: 8300000, guid: 6dd9bed5538958f4a833bbcb52b6d55d, type: 3}
+  footStepClips:
+  - {fileID: 8300000, guid: d32b798855d3c9f44a8a27f01d02de03, type: 3}
+  - {fileID: 8300000, guid: 831b23279cfe44f47997c92a777a312d, type: 3}
+  - {fileID: 8300000, guid: c662660b99b9d6040abc2a1ac4603bde, type: 3}
+  - {fileID: 8300000, guid: a58c0ae7a0e9f0b468928f6a74681809, type: 3}
+  - {fileID: 8300000, guid: bd154084218eb2c4ea52571a9ad6d2de, type: 3}
   speedMoveCurrent: 0
   speedMoveMin: 2.5
   speedMoveMax: 4.5
@@ -4121,7 +4126,7 @@ GameObject:
   - component: {fileID: 8426061452577175072}
   - component: {fileID: 8426061452577175135}
   m_Layer: 31
-  m_Name: Image
+  m_Name: crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4136,7 +4141,7 @@ RectTransform:
   m_GameObject: {fileID: 8426061452577175133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.73483, y: 0.73483, z: 0.73483}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8426061451479995091}
@@ -4144,8 +4149,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119.85249, y: -60.497498}
-  m_SizeDelta: {x: 2.2689, y: 2.2689}
+  m_AnchoredPosition: {x: -121.3, y: -57.62}
+  m_SizeDelta: {x: 1086.7, y: 601.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8426061452577175072
 CanvasRenderer:
@@ -4175,7 +4180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e93c237bdafb40b43b447c4dfbb3005c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -39,6 +39,14 @@ public class Monster : MonoBehaviour
 
     [SerializeField] private float distanceToPoint;
 
+    [SerializeField] private AudioClip[] footStepClips;
+    [SerializeField] private AudioClip[] roarClips;
+    private int tempIndexFoot;
+    private int tempIndexRoar;
+
+    [SerializeField] private AudioSource screamSource;
+    [SerializeField] private AudioSource footSource;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
@@ -163,4 +171,24 @@ public class Monster : MonoBehaviour
     }
     private bool CanDetectItem() => fsm.currentState.GetType() != typeof(MonsterAttack) && fsm.currentState.GetType() != typeof(MonsterPickUp) && item == null;
     public bool IsNearToPoint(Vector3 point) => Vector3.Distance(agent.transform.position, point) <= distanceToPoint;
+    public void DoFootStep()
+    {
+        int index = UnityEngine.Random.Range(0, footStepClips.Length);
+        if (tempIndexFoot == index) DoFootStep();
+        else
+        {
+            tempIndexFoot = index;
+            footSource.PlayOneShot(footStepClips[index], 13);
+        }
+    }
+    public void DoRoar()
+    {
+        int index = UnityEngine.Random.Range(0, roarClips.Length);
+        if (tempIndexRoar == index) DoRoar();
+        else
+        {
+            tempIndexRoar = index;
+            screamSource.PlayOneShot(roarClips[index]);
+        }
+    }
 }

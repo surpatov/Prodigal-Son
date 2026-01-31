@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5480521953516272689}
-  dropSound: {fileID: 8300000, guid: 8bb5bebc91850674e8c8042485251b54, type: 3}
+  dropSound: {fileID: 8300000, guid: fe0e06b28650aa2409fc7a5f906c17de, type: 3}
   source: {fileID: 5480521953516272700}
   dangerVelocity: 0.4
 --- !u!82 &5480521953516272700
@@ -292,7 +292,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

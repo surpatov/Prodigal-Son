@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public PlayerInteract interact;
     [SerializeField] private GameObject anchor;
     [SerializeField] private AudioSource source;
-    [SerializeField] private AudioClip footStepClip;
+    [SerializeField] private AudioClip[] footStepClips;
     [SerializeField] private float speedMoveCurrent;
     [SerializeField] private float speedMoveMin;
     [SerializeField] private float speedMoveMax;
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Slider sliderStamina;
 
     [SerializeField] private GlobalSettingsSO settings;
+    private int tempIndex;
 
     float xRotation = 0f;
     float yRotation = 0f;
@@ -244,7 +245,15 @@ public class PlayerController : MonoBehaviour
     }
     public void FootStep()
     {
-        if(!isCrounch)
-            source.PlayOneShot(footStepClip);
+        if (!isCrounch)
+        {
+            int index = Random.Range(0, footStepClips.Length);
+            if (index == tempIndex) FootStep();
+            else
+            {
+                source.PlayOneShot(footStepClips[index]);
+                tempIndex = index;
+            }
+        }
     }
 }
