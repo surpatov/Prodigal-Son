@@ -14,7 +14,8 @@ public class KeyholeControl : MonoBehaviour, IZoomable
     PlayerController playerController;
 
     [SerializeField] private Transform parentPoint;
-    private Vector3 offset;
+    private Vector3 offsetPosition;
+    private Vector3 offsetAngles;
 
     Item key;
     public float speed = 1.0f;
@@ -22,12 +23,18 @@ public class KeyholeControl : MonoBehaviour, IZoomable
     private void Start()
     {
         if (parentPoint != null)
-            offset = transform.parent.position - parentPoint.position;
+        {
+            offsetPosition = transform.parent.parent.position - parentPoint.position;
+            offsetAngles = transform.parent.parent.eulerAngles - parentPoint.eulerAngles;
+        }
     }
     private void Update()
     {
         if(parentPoint != null)
-            transform.position = parentPoint.position + offset;
+        {
+            transform.parent.position = parentPoint.position + offsetPosition;
+            transform.parent.eulerAngles = parentPoint.eulerAngles + offsetAngles;
+        }
 
         if (key != null)
             key.transform.position = transform.position;

@@ -56,10 +56,10 @@ Transform:
   m_GameObject: {fileID: 3393536473997418344}
   m_LocalRotation: {x: 0, y: -0.5567523, z: 0, w: 0.8306785}
   m_LocalPosition: {x: 3.077, y: 0.214, z: 4.257}
-  m_LocalScale: {x: 0.03337431, y: 0.05787097, z: 0.091831066}
+  m_LocalScale: {x: 0.017753163, y: 0.035506308, z: 0.051235683}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3393536475211980990}
+  - {fileID: 5219897003347274898}
   - {fileID: 3393536476050482646}
   - {fileID: 194910914}
   m_Father: {fileID: 0}
@@ -92,12 +92,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3393536475211980989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000018286, y: 0, z: -0.039726}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -0.06}
   m_LocalScale: {x: 1.0930138, y: 0.65699965, z: 1.0930138}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3393536473997418347}
+  m_Father: {fileID: 5219897003347274898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3393536475211980991
@@ -177,8 +177,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 1.054105}
-  m_Center: {x: -8.8709484e-11, y: -2.5698107e-15, z: 0.42705247}
+  m_Size: {x: 10, y: 10, z: 1.2129687}
+  m_Center: {x: 0.000025299765, y: 0, z: 0.50648457}
 --- !u!114 &265285187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +199,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 3393536475211980985}
   - {fileID: 3393536476050482641}
+  parentPoint: {fileID: 0}
   speed: 1
 --- !u!1 &3393536476050482647
 GameObject:
@@ -243,5 +244,37 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 70.6846, y: 74.5541, z: 2.6029356}
-  m_Center: {x: 20.836834, y: 6.2833133, z: -1.2015598}
+  m_Size: {x: 70.6846, y: 74.55409, z: 3.9659095}
+  m_Center: {x: 20.836912, y: 6.283312, z: -1.0564377}
+--- !u!1 &8455362762532253377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5219897003347274898}
+  m_Layer: 16
+  m_Name: keyhole pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5219897003347274898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455362762532253377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3393536475211980990}
+  m_Father: {fileID: 3393536473997418347}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

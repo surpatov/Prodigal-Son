@@ -91,6 +91,10 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<Monster_trap>().MakeSound();
         }
+        if (other.GetComponent<TutorialRoom>())
+        {
+            other.GetComponent<TutorialRoom>().Enter();
+        }
     }
     private void StaminaChange()
     {
