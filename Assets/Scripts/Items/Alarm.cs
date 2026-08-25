@@ -12,8 +12,9 @@ public class Alarm : Item, ISoundable, IClikable
     [SerializeField] private AudioSource source;
     public float TimeToSound { get { return timeTicking; } set { timeTicking = value; } }
     [SerializeField] private float timeTicking;
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         monster = FindObjectOfType<Monster>();
         canRing = true;
     }

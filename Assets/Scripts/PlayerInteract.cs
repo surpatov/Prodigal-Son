@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject gameplayUI;
     [SerializeField] private GameObject mainUI;
+
+    [SerializeField] private Slider progressBar;
+    private HidingPlace currentHidingPlace;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -99,6 +104,14 @@ public class PlayerInteract : MonoBehaviour
         if (TryGetComponent<Rope>(out var rope))
             rope.Cut(inventory, inventory.GetCurrentItem.GetComponent<Knife>());
 
+        if (TryGetComponent<HidingPlace>(out var hidingPlace))
+        {
+            hidingPlace.GettingIn(cameras, playerObject, GetComponent<TextView>().GetTextItem);
+            currentHidingPlace = hidingPlace;
+            progressBar.gameObject.SetActive(true);
+            progressBar.value = hidingPlace.GetProcessing();
+        }
+
         // ¬заимодействие с двер€ми по тегам
         switch (hit.collider.tag)
         {
@@ -124,6 +137,8 @@ public class PlayerInteract : MonoBehaviour
         {
             ResetInventoryState();
         }
+        progressBar.gameObject.SetActive(false);
+        currentHidingPlace?.StopGettinIn();
     }
 
     private void HandleLeftMouseButtonDown()
@@ -133,6 +148,7 @@ public class PlayerInteract : MonoBehaviour
         {
             case "Item":
                 inventory.PickUpItem(hit.collider.GetComponentInParent<Item>());
+                hit.collider.GetComponentInParent<Item>().isTook = true;
                 break;
 
             case "Comode":
@@ -191,9 +207,6 @@ public class PlayerInteract : MonoBehaviour
             source.PlayOneShot(electricalSwitch.switchOnOff);
             electricalSwitch.Turn();
         }
-
-        if (TryGetComponent<HidingPlace>(out var hidingPlace))
-            hidingPlace.GetIn(cameras, playerObject, GetComponent<TextView>().GetTextItem);
     }
 
     // ¬спомогательные методы
@@ -252,7 +265,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenuUI.SetActive(!pauseMenuUI.activeInHierarchy);
+            pauseMenuUI.gameObject.SetActive(!pauseMenuUI.gameObject.activeInHierarchy);
             gameplayUI.SetActive(!gameplayUI.activeInHierarchy);
             if (!gameplayUI.activeInHierarchy) { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; Time.timeScale = 0f; }
             else { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; Time.timeScale = 1f; }
@@ -278,6 +291,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 rigidbody.AddForce(difference * 500);
                 holdObject.transform.position = impactPlace.position;
+                //rigidbody.MovePosition(impactPlace.position);
             }
 
             if (!pressed || playerController.IsCrounch)
@@ -295,6 +309,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 if (hit.collider.tag == "Pickapable" && !playerController.IsCrounch)
                 {
+                    impactPlace.position = hit.collider.transform.position; // можно доработать
                     holdObject = hit.transform.gameObject;
                     var rigidbody = holdObject.GetComponent<Rigidbody>();
                     rigidbody.drag = 25f;

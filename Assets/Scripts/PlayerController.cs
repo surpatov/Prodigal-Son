@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isUpNotFree;
     [SerializeField] private Slider sliderStamina;
 
-    [SerializeField] private GlobalSettingsSO settings;
     private int tempIndex;
 
     float xRotation = 0f;
@@ -56,7 +55,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        sensivityRotation = settings.mouseSensivity;
+        sensivityRotation = GameSettings.MouseSensitivity;
         sliderStamina.value = stamina;
         hand.transform.position = cameraObject.transform.position + offsetHands;
         hand.transform.rotation = cameraObject.transform.rotation;
@@ -188,11 +187,11 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerRotation()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensivityRotation * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensivityRotation * Time.deltaTime;
-        transform.Rotate(Vector2.up * mouseX * sensivityRotation);
-        xRotation -= mouseY * sensivityRotation;
-        yRotation += mouseX * sensivityRotation;
+        float mouseX = Input.GetAxis("Mouse X") * GameSettings.MouseSensitivity * Time.deltaTime * (GameSettings.IsXVert ? -1 : 1);
+        float mouseY = Input.GetAxis("Mouse Y") * GameSettings.MouseSensitivity * Time.deltaTime * (GameSettings.IsYVert ? -1 : 1);
+        transform.Rotate(Vector2.up * mouseX * GameSettings.MouseSensitivity);
+        xRotation -= mouseY * GameSettings.MouseSensitivity;
+        yRotation += mouseX * GameSettings.MouseSensitivity;
         xRotation = Mathf.Clamp(xRotation, -maxAngle, maxAngle);
         cameraObject.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
@@ -251,7 +250,7 @@ public class PlayerController : MonoBehaviour
             if (index == tempIndex) FootStep();
             else
             {
-                source.PlayOneShot(footStepClips[index]);
+                source.PlayOneShot(footStepClips[index], GameSettings.SoundsVolume);
                 tempIndex = index;
             }
         }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HideCamera : MonoBehaviour
 {
-    [SerializeField] private float sensivityRotation;
     [SerializeField] private float maxAngle;
     [SerializeField] private HidingPlace hideCamera;
     private void Update()
@@ -14,7 +13,7 @@ public class HideCamera : MonoBehaviour
     }
     private void RotateCamera()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensivityRotation * Time.deltaTime;
-        transform.Rotate(Vector2.up * mouseX * sensivityRotation);
+        float mouseX = Input.GetAxis("Mouse X") * GameSettings.MouseSensitivity * Time.deltaTime * (GameSettings.IsXVert ? -1 : 1);
+        transform.Rotate(Vector2.up * mouseX * GameSettings.MouseSensitivity);
     }
 }

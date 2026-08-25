@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class HidingPlace : MonoBehaviour
 {
@@ -11,18 +12,34 @@ public class HidingPlace : MonoBehaviour
     [SerializeField] private Transform hidingPlace;
     [SerializeField] private float speed;
 
+    [Header("Processing")]
+    [SerializeField] private float step;
+    [SerializeField] private float timeToOpen;
+    private float currentTime;
+
     private bool inPlace;
 
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
     }
-    private void Update()
+
+    public float GetProcessing() => currentTime;
+    public void GettingIn(Camera[] cameraOff, GameObject playerObject, TextMeshProUGUI _text)
     {
-        if (inPlace) SetRootIn();
+        currentTime += Time.deltaTime * step;
+        if (currentTime >= timeToOpen)
+        {
+            GetIn(cameraOff, playerObject, _text);
+            currentTime = 0f;
+        }
+    }
+    public void StopGettinIn()
+    {
+        currentTime = 0f;
     }
 
-    public void GetIn(Camera[] cameraOff, GameObject playerObject, TextMeshProUGUI _text)
+    private void GetIn(Camera[] cameraOff, GameObject playerObject, TextMeshProUGUI _text)
     {
         listener.enabled = true;
         cameras = cameraOff;
@@ -32,7 +49,7 @@ public class HidingPlace : MonoBehaviour
         hidingCamera.transform.position = cameras[0].transform.position;
         hidingCamera.transform.rotation = cameras[0].transform.rotation;
 
-        inPlace = true;
+        SetRootIn();
 
         hidingCamera.transform.GetChild(0).GetComponent<Camera>().enabled = true;
         foreach (var camera in cameras) { camera.enabled = false; }
@@ -50,12 +67,11 @@ public class HidingPlace : MonoBehaviour
     }
     private void SetRootIn()
     {
-        if(hidingCamera.transform.position != hidingPlace.position && hidingCamera.transform.rotation != hidingPlace.transform.rotation)
-        {
-            var step = speed * 2 * Time.deltaTime;
-            var rotStep = speed * 100 * Time.deltaTime;
-            hidingCamera.transform.position = Vector3.MoveTowards(hidingCamera.transform.position, hidingPlace.position, step);
-            hidingCamera.transform.rotation = Quaternion.RotateTowards(hidingCamera.transform.rotation, hidingPlace.transform.rotation, rotStep);
-        }  
+        Vector3 targetAngles = hidingPlace.transform.rotation.eulerAngles;
+        targetAngles.x = 0;
+        targetAngles.z = 0;
+
+        hidingCamera.transform.DOMove(hidingPlace.position, 0.7f);
+        hidingCamera.transform.DOLocalRotate(targetAngles, 0.7f);
     }
 }

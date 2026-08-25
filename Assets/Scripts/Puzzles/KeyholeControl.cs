@@ -12,10 +12,26 @@ public class KeyholeControl : MonoBehaviour, IZoomable
     [SerializeField] float goalRotation;
     [SerializeField] Collider[] colliders;
     PlayerController playerController;
+
+    [SerializeField] private Transform parentPoint;
+    private Vector3 offset;
+
     Item key;
     public float speed = 1.0f;
+
+    private void Start()
+    {
+        if (parentPoint != null)
+            offset = transform.parent.position - parentPoint.position;
+    }
     private void Update()
     {
+        if(parentPoint != null)
+            transform.position = parentPoint.position + offset;
+
+        if (key != null)
+            key.transform.position = transform.position;
+
         if (isKeyed)
             SetRoot();
         if(goalRotation - transform.localEulerAngles.z < 1f)

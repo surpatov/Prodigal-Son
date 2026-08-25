@@ -5,8 +5,9 @@ public class Scrap : Item
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip creakClip;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         source = GetComponent<AudioSource>();
     }
     public void Screak()
