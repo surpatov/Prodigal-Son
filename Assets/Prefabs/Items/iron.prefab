@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2591248481480775243}
   - component: {fileID: 2591248481480775240}
   - component: {fileID: 2591248481480775244}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: iron
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -136,6 +136,8 @@ MonoBehaviour:
   Name: Iron
   rootPosition: {x: 0.5, y: -0.3, z: 0.7}
   rootRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  isTook: 0
+  shelfParent: {fileID: 0}
   child_mesh: {fileID: 5839699279272860936}
   own_mesh: {fileID: 2591248481480775255}
   inventory: {fileID: 0}
@@ -285,7 +287,7 @@ GameObject:
   - component: {fileID: 5839699279272860938}
   - component: {fileID: 5839699279272860937}
   - component: {fileID: 5839699279272860936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: iron_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

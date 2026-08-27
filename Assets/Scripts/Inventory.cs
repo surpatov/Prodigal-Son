@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private float itemSetSpeed;
     [SerializeField] Vector3 offset;
     [SerializeField] public bool canRoot;
+
+    [SerializeField] private Image[] slotsUI;
 
     private void Start()
     {
@@ -187,11 +190,15 @@ public class Inventory : MonoBehaviour
         {
             handAnimator.SetTrigger("SETITEM");
             indexCurrent = 0;
+            slotsUI[0].gameObject.SetActive(true);
+            slotsUI[1].gameObject.SetActive(false);
         }
         if (Input.GetKeyUp(KeyCode.Alpha2) && indexCurrent != 1)
         {
             handAnimator.SetTrigger("SETITEM");
             indexCurrent = 1;
+            slotsUI[1].gameObject.SetActive(true);
+            slotsUI[0].gameObject.SetActive(false);
         }
     }
 }

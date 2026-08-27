@@ -13,29 +13,19 @@ public class KeyholeControl : MonoBehaviour, IZoomable
     [SerializeField] Collider[] colliders;
     PlayerController playerController;
 
-    [SerializeField] private Transform parentPoint;
-    private Vector3 offsetPosition;
-    private Vector3 offsetAngles;
+    [SerializeField] Transform parentPoint;
+    Vector3 offset;
 
     Item key;
     public float speed = 1.0f;
 
     private void Start()
     {
-        if (parentPoint != null)
-        {
-            offsetPosition = transform.parent.parent.position - parentPoint.position;
-            offsetAngles = transform.parent.parent.eulerAngles - parentPoint.eulerAngles;
-        }
+        if (parentPoint == null) return;
+        offset = transform.position - parentPoint.position;
     }
     private void Update()
     {
-        if(parentPoint != null)
-        {
-            transform.parent.position = parentPoint.position + offsetPosition;
-            transform.parent.eulerAngles = parentPoint.eulerAngles + offsetAngles;
-        }
-
         if (key != null)
             key.transform.position = transform.position;
 
@@ -48,6 +38,9 @@ public class KeyholeControl : MonoBehaviour, IZoomable
             playerController.canWalk = true;
             playerController.canRotation = true;
         }
+
+        if (parentPoint == null) return;
+        transform.position = parentPoint.position + offset;
     }
     public void Open(PlayerController playerControl, Item item, Inventory inv)
     {

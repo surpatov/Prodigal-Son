@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4796109603048816390}
   - component: {fileID: 7887221013329267275}
   - component: {fileID: 1687440962771016505}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1116463083538194055}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: comode_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5008250547417982571}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: door_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 5008250547641114394}
   - component: {fileID: 5008250547641114395}
   - component: {fileID: 5008250547641114388}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Cube.001
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5008250548423565109}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: door_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5008250549037865531}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: door_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 5008250549386594551}
   - component: {fileID: 5008250549386594544}
   - component: {fileID: 5008250549386594545}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Cube.001
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 3485577850080501958}
   - component: {fileID: 3485577850080501959}
   - component: {fileID: 3485577850080501952}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Cube.001
   m_TagString: Comode
   m_Icon: {fileID: 0}

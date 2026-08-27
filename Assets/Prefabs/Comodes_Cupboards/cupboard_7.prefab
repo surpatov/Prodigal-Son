@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371821007495732620}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8006015168395765968}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7963172051712124684}
   - component: {fileID: 7963172051712124685}
   - component: {fileID: 7963172051712124686}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Chest_drawers_01.005
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3496564991229770579}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: door (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 6806257634011360290}
   - component: {fileID: 4298154389747091437}
   - component: {fileID: 7916462687217006075}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Chest_drawers_01.005
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 784290580740246}
   - component: {fileID: 539346527481496714}
   - component: {fileID: 6542443394786920714}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: cupboard_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 2527668435276640005}
   - component: {fileID: 2783509718752999867}
   - component: {fileID: 7827675211721813559}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Chest_drawers_01.005
   m_TagString: Comode
   m_Icon: {fileID: 0}

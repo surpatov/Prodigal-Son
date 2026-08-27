@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2513076057308384583}
   - component: {fileID: 2513076057308384582}
   - component: {fileID: 1836584532299626460}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Cube.156
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 9045005445520309574}
   - component: {fileID: 9045005445520309575}
   - component: {fileID: 9045005445520309572}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: comode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 8783624289855725178}
   - component: {fileID: 8783624289855725181}
   - component: {fileID: 1749923953725246902}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: Cube.008
   m_TagString: Comode
   m_Icon: {fileID: 0}

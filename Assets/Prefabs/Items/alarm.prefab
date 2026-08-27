@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7011932442088529854}
   - component: {fileID: 7011932442088529853}
   - component: {fileID: 7011932442088529852}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: alarm
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -104,6 +104,8 @@ MonoBehaviour:
   Name: Alarm
   rootPosition: {x: 0.37, y: -0.37, z: 0.454}
   rootRotation: {x: 0, y: 0.2062042, z: 0, w: -0.978509}
+  isTook: 0
+  shelfParent: {fileID: 0}
   monster: {fileID: 0}
   ringingSound: {fileID: 8300000, guid: 09d3bb7564f70b14f8c0b4cd6cb48469, type: 3}
   tickingSound: {fileID: 8300000, guid: e349f6f052069b0439337cc91b494456, type: 3}

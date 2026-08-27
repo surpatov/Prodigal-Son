@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 7239524741695832141}
   - component: {fileID: 6473139884843437708}
   - component: {fileID: 5918864964895012905}
-  - component: {fileID: 7244589006687085582}
   - component: {fileID: 1847047359922196093}
   - component: {fileID: 1901856702}
   - component: {fileID: 1901856703}
+  - component: {fileID: 2184319694297670719}
+  - component: {fileID: 6350333911266011322}
   m_Layer: 0
   m_Name: chair_3_moveble
   m_TagString: Pickapable
@@ -87,20 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7244589006687085582
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7471065882810785664}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8258520836729748760, guid: c3e4f171cb31a684e828c444369961f1, type: 3}
 --- !u!54 &1847047359922196093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -256,3 +243,29 @@ MonoBehaviour:
   dropSound: {fileID: 8300000, guid: 8bb5bebc91850674e8c8042485251b54, type: 3}
   source: {fileID: 0}
   dangerVelocity: 0.1
+--- !u!65 &2184319694297670719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471065882810785664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55014646, y: 0.55086094, z: 0.484209}
+  m_Center: {x: -0.0013982654, y: 0.043527782, z: -0.2698101}
+--- !u!65 &6350333911266011322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471065882810785664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5039884, y: 0.06980269, z: 1.0939391}
+  m_Center: {x: -0.006962225, y: -0.1970014, z: 0.03505498}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567204859699791973}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod_object (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567204859822494598}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod_object (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 567204859998358716}
   - component: {fileID: 567204859998358719}
   - component: {fileID: 567204859998358718}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567204860109176941}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod_object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 567204860157973515}
   - component: {fileID: 567204860157973514}
   - component: {fileID: 567204860157973557}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567204860273197900}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod_object (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 567204860435033929}
   - component: {fileID: 567204860435033928}
   - component: {fileID: 567204860435033931}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 5446374551988675034}
   - component: {fileID: 5446374551988675013}
   - component: {fileID: 5446374551988675033}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: comod
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 6151507292358610134}
   - component: {fileID: 6151507292358610129}
   - component: {fileID: 6151507292358610128}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: cupboard_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 7177823113649104981}
   - component: {fileID: 7177823113649104939}
   - component: {fileID: 7177823113649104938}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: door_1
   m_TagString: Cupboard_door
   m_Icon: {fileID: 0}
@@ -1089,7 +1089,7 @@ GameObject:
   - component: {fileID: 2674100919503011242}
   - component: {fileID: 8224581437513397246}
   - component: {fileID: 8224581437513397241}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: door_2
   m_TagString: Cupboard_door
   m_Icon: {fileID: 0}

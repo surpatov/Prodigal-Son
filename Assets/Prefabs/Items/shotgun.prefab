@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 383249903}
   - component: {fileID: 383249901}
   - component: {fileID: 383249902}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4822,7 +4822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8780214694617384481}
   - component: {fileID: 3055747658266550811}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: Audio Source
   m_TagString: Sounds
   m_Icon: {fileID: 0}
@@ -4958,7 +4958,9 @@ GameObject:
   - component: {fileID: 460102126404671641}
   - component: {fileID: 3245367821215231052}
   - component: {fileID: 4951334308208059253}
-  m_Layer: 9
+  - component: {fileID: 9148906236324492702}
+  - component: {fileID: 3291809143705474450}
+  m_Layer: 3
   m_Name: shotgun
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -5000,6 +5002,8 @@ MonoBehaviour:
   Name: Shotgun
   rootPosition: {x: 0.4, y: -0.29, z: 0.67}
   rootRotation: {x: 0.018201489, y: -0.70687246, z: 0.018201489, w: -0.70687246}
+  isTook: 0
+  shelfParent: {fileID: 0}
   sleeHandlers:
   - {fileID: 2011934332236038227}
   - {fileID: 7516558488093695210}
@@ -5066,10 +5070,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.03364318
-  m_Height: 0.3914111
+  m_Radius: 0.033643175
+  m_Height: 0.20189601
   m_Direction: 0
-  m_Center: {x: -0.10761803, y: 0.066356845, z: -0.000000064815985}
+  m_Center: {x: -0.012859219, y: 0.066356845, z: -0.00000006389661}
 --- !u!136 &460102126404671643
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5095,9 +5099,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.026384871
-  m_Height: 0.06670471
+  m_Height: 0.054375973
   m_Direction: 1
-  m_Center: {x: 0.25627747, y: -0.024376813, z: -0.00052482606}
+  m_Center: {x: 0.25627726, y: -0.030541202, z: -0.00052480056}
 --- !u!136 &460102126404671641
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5108,10 +5112,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.020318845
-  m_Height: 0.090544105
+  m_Radius: 0.026021667
+  m_Height: 0.055024255
   m_Direction: 0
-  m_Center: {x: 0.19141313, y: 0.029999997, z: 0.00052002625}
+  m_Center: {x: 0.17365147, y: 0.03570283, z: 0.0005201086}
 --- !u!82 &3245367821215231052
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5224,6 +5228,33 @@ MonoBehaviour:
   dropSound: {fileID: 8300000, guid: 8bb5bebc91850674e8c8042485251b54, type: 3}
   source: {fileID: 0}
   dangerVelocity: 0.1
+--- !u!136 &9148906236324492702
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948373715697058395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.02602167
+  m_Height: 0.05502426
+  m_Direction: 1
+  m_Center: {x: 0.223, y: 0.01, z: 0}
+--- !u!65 &3291809143705474450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948373715697058395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22716318, y: 0.011297788, z: 0.06319918}
+  m_Center: {x: -0.18787196, y: 0.083153054, z: 0.000020644873}
 --- !u!1 &2607464859007291265
 GameObject:
   m_ObjectHideFlags: 0
@@ -5233,7 +5264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6434788844995931881}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: rig_db_shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5266,7 +5297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1857058343381048297}
   - component: {fileID: 8723980291365295104}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: dbsg_barrel_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5354,7 +5385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011934332236038227}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: dbshellleft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5385,7 +5416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685147299324555360}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: dbBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5419,7 +5450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7516558488093695210}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: dbshellright
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5451,7 +5482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1628496787189930137}
   - component: {fileID: 2409036174976363076}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: dbsg_stock_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5466,7 +5497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6524298284528925763}
   m_LocalRotation: {x: -0.7071069, y: 2.988795e-14, z: -2.2345702e-14, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.035, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5539,7 +5570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 798703720266764326}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: dbCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}

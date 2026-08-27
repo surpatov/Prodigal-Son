@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6595550435535548487}
   - component: {fileID: 6595550435535548508}
   - component: {fileID: 6595550435535548483}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: knife
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -156,6 +156,8 @@ MonoBehaviour:
   Name: Knife
   rootPosition: {x: 0.5, y: -0.1, z: 0.5}
   rootRotation: {x: -0.1227878, y: 0.6963642, z: 0.1227878, w: -0.6963642}
+  isTook: 0
+  shelfParent: {fileID: 0}
 --- !u!114 &6595550435535548508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +281,7 @@ GameObject:
   - component: {fileID: 4532997409451809778}
   - component: {fileID: 4532997409451809740}
   - component: {fileID: 4532997409451809779}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: knife_mesh
   m_TagString: Item
   m_Icon: {fileID: 0}

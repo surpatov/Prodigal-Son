@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3444039763047780925}
   - component: {fileID: 3444039763047780926}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,8 +46,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2.34
   m_Range: 10
-  m_SpotAngle: 47.5
-  m_InnerSpotAngle: 21.3
+  m_SpotAngle: 18.3
+  m_InnerSpotAngle: 18.3
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 69184334222829046}
   - component: {fileID: 69184334222829050}
   - component: {fileID: 69184334222829049}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: flashlight
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3444039763047780925}
+  - {fileID: 8039191614448021968}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -351.686}
@@ -229,6 +230,8 @@ MonoBehaviour:
   Name: Flashlight
   rootPosition: {x: 0.3, y: -0.2, z: 0.3}
   rootRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  isTook: 0
+  shelfParent: {fileID: 0}
 --- !u!114 &69184334222829050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,3 +344,77 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &9012540212340414925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3988519508289563216}
+    m_Modifications:
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.09971267
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.22075838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.09971267
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796897274585316134, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_Name
+      value: light_cone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+--- !u!4 &8039191614448021968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1333641344219899933, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+  m_PrefabInstance: {fileID: 9012540212340414925}
+  m_PrefabAsset: {fileID: 0}

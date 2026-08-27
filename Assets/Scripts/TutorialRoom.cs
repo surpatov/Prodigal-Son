@@ -12,22 +12,21 @@ public class TutorialRoom : MonoBehaviour
     private int currentMessageIndex;
     private Collider roomCollider;
 
+    bool canShow;
+
     private void Start()
     {
         roomCollider = GetComponent<Collider>();
         currentMessageIndex = -1;
-        if(tutorialRoom)
-            tutorialRoom.enabled = false;
     }
     private void OnEnable()
     {
         roomCollider = GetComponent<Collider>();
         currentMessageIndex = -1;
-        if (tutorialRoom)
-            tutorialRoom.enabled = false;
     }
     private void Update()
     {
+        if (!canShow) return;
         if(Input.GetKeyDown(KeyCode.G))
         {
             ShowNextMessage();
@@ -36,7 +35,9 @@ public class TutorialRoom : MonoBehaviour
 
     public void Enter()
     {
-        roomCollider.enabled = false;
+        if(roomCollider != null)
+            roomCollider.enabled = false;
+        canShow = true;
         ShowNextMessage();
         // звук
     }

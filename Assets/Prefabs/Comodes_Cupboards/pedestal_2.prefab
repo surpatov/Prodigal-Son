@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6587284191576160725}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: pedestal_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1916871375353375451}
   - component: {fileID: 2024074400210388290}
   - component: {fileID: 2024074400210388289}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: door_2
   m_TagString: Cupboard_door
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 3795910245736153484}
   - component: {fileID: 3795910245736153485}
   - component: {fileID: 3795910245736153523}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: door_1
   m_TagString: Comode
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 2477105190556442150}
   - component: {fileID: 2477105190556442151}
   - component: {fileID: 548640198711425915}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

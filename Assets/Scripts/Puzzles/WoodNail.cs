@@ -6,7 +6,6 @@ public class WoodNail : MonoBehaviour, IZoomable
 {
     [SerializeField] Inventory inventory;
     [SerializeField] Transform rootPos;
-    [SerializeField] Quaternion rootRot;
     [SerializeField] float speed;
     [SerializeField] GameObject woodPlank;
     [SerializeField] GameObject anotherNail;
@@ -47,6 +46,6 @@ public class WoodNail : MonoBehaviour, IZoomable
         var step = speed * 2 * Time.deltaTime;
         var rotStep = speed * 200 * Time.deltaTime;
         scrap.transform.position = Vector3.MoveTowards(scrap.transform.position, rootPos.position, step);
-        scrap.transform.rotation = Quaternion.RotateTowards(scrap.transform.rotation, rootRot, rotStep);
+        scrap.transform.rotation = Quaternion.RotateTowards(scrap.transform.rotation, rootPos.rotation, rotStep);
     }
 }

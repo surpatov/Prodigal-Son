@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1918424240989957062}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: cupboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 1628410117052120691}
   - component: {fileID: 1628410117052120652}
   - component: {fileID: 1628410117052120690}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 7746207365737475040}
   - component: {fileID: 3806506968460911612}
   - component: {fileID: 3806506968460911587}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: door_1_cup
   m_TagString: Cupboard_door
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 9166169472153412759}
   - component: {fileID: 2599324222690188323}
   - component: {fileID: 2599324222690188322}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: door_2_cup
   m_TagString: Cupboard_door
   m_Icon: {fileID: 0}

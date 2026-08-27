@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1283337414724060433}
   - component: {fileID: 6622145085283886174}
   - component: {fileID: 1283337414724060439}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: scrap_pivot
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -133,6 +133,8 @@ MonoBehaviour:
   Name: Scrap
   rootPosition: {x: 0.3, y: -0.5, z: 0.5}
   rootRotation: {x: 0.27059808, y: -0.65328145, z: 0.27059808, w: -0.65328145}
+  isTook: 0
+  shelfParent: {fileID: 0}
   source: {fileID: 1283337414724060439}
   creakClip: {fileID: 8300000, guid: 4fdb0f085416ad743a2bf0f8c12e2bbc, type: 3}
 --- !u!82 &1283337414724060439
@@ -242,7 +244,7 @@ GameObject:
   - component: {fileID: 2353575044142714171}
   - component: {fileID: 612132569650820209}
   - component: {fileID: 4132898685733884133}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: scrap
   m_TagString: Item
   m_Icon: {fileID: 0}
