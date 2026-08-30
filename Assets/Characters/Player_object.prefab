@@ -9998,7 +9998,7 @@ MonoBehaviour:
   PixelMaskTexture: {fileID: 2800000, guid: 55b9f85457b9afc46834d927aa2e61cc, type: 3}
   MaskRepeatX: 160
   MaskRepeatY: 90
-  PixelMaskBrightness: 1.4
+  PixelMaskBrightness: 1.029
   IQOffset: {x: 0, y: 0}
   IQScale: {x: 1, y: 1}
   RFNoise: 0.09

@@ -100,6 +100,8 @@ public class PlayerInteract : MonoBehaviour
         // Работа с замком
         if (TryGetComponent<KeyholeControl>(out var keyholeControl))
             keyholeControl.Open(playerController, inventory.GetCurrentItem, inventory);
+        if(TryGetComponent<ValveControl>(out var valveControl))
+            valveControl.Rotating(playerController, inventory.GetCurrentItem, inventory);
 
         if (TryGetComponent<Rope>(out var rope))
             rope.Cut(inventory, inventory.GetCurrentItem.GetComponent<Knife>());
@@ -128,7 +130,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void HandleLeftMouseButtonUp()
     {
-        if (TryGetComponent<KeyholeControl>(out var keyholeControl))
+        if (TryGetComponent<KeyholeControl>(out var keyholeControl) || TryGetComponent<ValveControl>(out var valveControl))
         {
             playerController.canWalk = true;
             playerController.canRotation = true;
@@ -166,6 +168,10 @@ public class PlayerInteract : MonoBehaviour
         if(TryGetComponent<DadsButton>(out var dadsButton))
         {
             dadsButton.Open();
+        }
+        if (TryGetComponent<ToiletTrigger>(out var trigger))
+        {
+            trigger.Activate();
         }
         // Взаимодействие с компонентами
         HandleComponentInteractions();

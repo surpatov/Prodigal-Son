@@ -124,6 +124,8 @@ public class Inventory : MonoBehaviour
             items[index].GetComponent<Shotgun>().cameraCenter = transform.parent;
             items[index].GetComponent<Shotgun>().inventory = GetComponent<Inventory>();
         }
+        if (items[index].GetComponent<Detector>())
+            items[index].GetComponent<Detector>().HandsTake(true);
     }
     private void ShootGunTake()
     {
@@ -164,6 +166,9 @@ public class Inventory : MonoBehaviour
             {
                 items[index].GetComponent<Shotgun>().TakeInHands();
             }
+            if (items[index].GetComponent<Detector>())
+                items[index].GetComponent<Detector>().HandsTake(false);
+
             items[index].GetComponent<Rigidbody>().useGravity = true;
             Collider[] colliders = items[index].GetComponents<Collider>();
             foreach (Collider collider in colliders)

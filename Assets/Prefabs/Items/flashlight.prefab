@@ -44,9 +44,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.34
+  m_Intensity: 1
   m_Range: 10
-  m_SpotAngle: 18.3
+  m_SpotAngle: 82
   m_InnerSpotAngle: 18.3
   m_CookieSize: 10
   m_Shadows:
@@ -54,9 +54,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0.13
+    m_NormalBias: 0.33
+    m_NearPlane: 0.95
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -75,7 +75,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: daa4490948bf2d64fbf7bbbbb00854db, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -410,6 +410,10 @@ PrefabInstance:
     - target: {fileID: 7796897274585316134, guid: cca503c8270676f44b883a9657de59cf, type: 3}
       propertyPath: m_Name
       value: light_cone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796897274585316134, guid: cca503c8270676f44b883a9657de59cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca503c8270676f44b883a9657de59cf, type: 3}
