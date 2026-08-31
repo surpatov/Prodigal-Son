@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rope : MonoBehaviour
+public class Rope : MonoBehaviour, IZoomable
 {
     [SerializeField] private Collider wallCollider;
     [SerializeField] private Transform pointKnifeTo;
@@ -18,6 +18,8 @@ public class Rope : MonoBehaviour
     }
     public void Cut(Inventory _inventory, Knife _knife)
     {
+        if(knife == null || inventory == null) return;
+
         _inventory.canRoot = false;
         inventory = _inventory;
         knife = _knife;

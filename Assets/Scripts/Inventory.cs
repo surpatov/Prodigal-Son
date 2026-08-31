@@ -156,6 +156,13 @@ public class Inventory : MonoBehaviour
             var rotStep = itemSetSpeed * 100 * Time.deltaTime;
             item.transform.localPosition = Vector3.MoveTowards(item.gameObject.transform.localPosition, moveTo, step);
             item.transform.localRotation = Quaternion.RotateTowards(item.transform.localRotation, rotateTo, rotStep);
+            item.gameObject.layer = LayerMask.NameToLayer("Hands");
+
+            if (item.transform.childCount == 0) return;
+            foreach(Transform child in item.transform.GetComponentsInChildren<Transform>())
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("Hands");
+            }
         }
     }
     public void DropItem(int index)

@@ -15,6 +15,9 @@ TagManager:
   - Pickapable
   - Sounds
   - Music
+  - WaterDamaged
+  - CarBigDoor
+  - RedButton
   layers:
   - Default
   - TransparentFX

@@ -154,6 +154,8 @@ public class Shotgun : Item
                 if (!hit.collider.GetComponentInParent<Monster>()) { BulletHit(hit); }
 
                 if (hit.collider.GetComponentInParent<Monster>()) { hit.collider.GetComponentInParent<Monster>().GetDamaged(); }
+
+                if(hit.collider.CompareTag("RedButton")) hit.collider.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
     }

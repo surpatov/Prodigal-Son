@@ -105,6 +105,10 @@ public class PlayerInteract : MonoBehaviour
 
         if (TryGetComponent<Rope>(out var rope))
             rope.Cut(inventory, inventory.GetCurrentItem.GetComponent<Knife>());
+        if (TryGetComponent<CardControl>(out var cardControl))
+            cardControl.OpenDoor(inventory, inventory.GetCurrentItem);
+        if (TryGetComponent<BarrelControl>(out var barrelControl))
+            barrelControl.FillBucket(inventory, inventory.GetCurrentItem.GetComponent<Bucket>());
 
         if (TryGetComponent<HidingPlace>(out var hidingPlace))
         {
@@ -160,6 +164,10 @@ public class PlayerInteract : MonoBehaviour
             case "Cupboard_door":
                 ToggleAnimation("isOpen", openCupboardClip);
                 break;
+
+            case "CarBigDoor":
+                hit.collider.GetComponent<Animator>().SetTrigger("OPEN");
+                break;
         }
         if (TryGetComponent<Breakeble>(out var breakeble))
         {
@@ -175,6 +183,9 @@ public class PlayerInteract : MonoBehaviour
         }
         // Взаимодействие с компонентами
         HandleComponentInteractions();
+
+        if (inventory.GetCurrentItem?.GetComponent<Bucket>())
+            inventory.GetCurrentItem.GetComponent<Bucket>().DropWater(hit.collider.gameObject);
     }
 
     private void HandleRightMouseButton()

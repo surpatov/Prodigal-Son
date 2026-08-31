@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1785963137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785963138}
+  m_Layer: 0
+  m_Name: bucket_point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1785963138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785963137}
+  m_LocalRotation: {x: 0.29883623, y: 0.64085644, z: 0.29883623, w: 0.64085644}
+  m_LocalPosition: {x: 5.935547e-11, y: -3.904607e-10, z: 0.00331}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1462038836246200162}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 50}
 --- !u!1 &4987320343980325523
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +127,7 @@ GameObject:
   - component: {fileID: 3924719913250497416}
   - component: {fileID: 2284096854431872006}
   - component: {fileID: 7573903477523083293}
+  - component: {fileID: 8082550168162232742}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Untagged
@@ -110,15 +142,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7441627689733067333}
-  m_LocalRotation: {x: -0.70560783, y: -0.046017762, z: -0.04601776, w: 0.7056078}
+  m_LocalRotation: {x: -0.7056077, y: -0.046019167, z: -0.046019167, w: 0.7056077}
   m_LocalPosition: {x: 5.3880167, y: 0.5660999, z: 17.324167}
-  m_LocalScale: {x: 48.417946, y: 48.417946, z: 58.266514}
+  m_LocalScale: {x: 38.163025, y: 38.163025, z: 45.925667}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6090178565174806633}
+  - {fileID: 1785963138}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -7.463}
 --- !u!33 &6186385715241976511
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -199,3 +232,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &8082550168162232742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441627689733067333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506bfc01bb94340408487365b5064b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointBucketTo: {fileID: 1785963138}
+  timeToFill: 3
+  timeLeft: 0
+  speed: 1
+  bucket: {fileID: 0}
+  inventory: {fileID: 0}
