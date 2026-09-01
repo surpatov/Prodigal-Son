@@ -34,6 +34,9 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Slider progressBar;
     private HidingPlace currentHidingPlace;
 
+    [SerializeField] private UnityEngine.UI.Image notePanel;
+    [SerializeField] private TMPro.TMP_Text noteText;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -186,6 +189,14 @@ public class PlayerInteract : MonoBehaviour
 
         if (inventory.GetCurrentItem?.GetComponent<Bucket>())
             inventory.GetCurrentItem.GetComponent<Bucket>().DropWater(hit.collider.gameObject);
+
+        if(TryGetComponent<Note>(out var note))
+        {
+            if (!note.IsInvinsible)
+            {
+                note.Read(notePanel, noteText, playerController);
+            }
+        }
     }
 
     private void HandleRightMouseButton()

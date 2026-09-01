@@ -10,9 +10,31 @@ public class Iron : Item
     [SerializeField] private Vector3 rootPos;
     [SerializeField] private Quaternion rootRot;
 
+    [SerializeField] private ParticleSystem smoke;
+
+    private bool isPressing = false; // Добавляем флаг состояния
+
+    protected override void Update()
+    {
+        base.Update();
+
+        // Контроль партиклов в зависимости от состояния
+        if (isPressing && Input.GetMouseButton(0))
+        {
+            if (!smoke.isPlaying)
+                smoke.Play();
+        }
+        else
+        {
+            if (smoke.isPlaying)
+                smoke.Stop();
+        }
+    }
+
     public void Press(Note note, Inventory inv)
     {
         inventory = inv;
+        isPressing = true; // Устанавливаем флаг
 
         if (note.TimeLeft > 0)
         {
@@ -21,8 +43,13 @@ public class Iron : Item
             note.Pressing();
             RootPosition(note);
         }
-        
+        else
+        {
+            isPressing = false;
+            smoke.Stop();
+        }
     }
+
     private void RootPosition(Note _note)
     {
         inventory.canRoot = false;
