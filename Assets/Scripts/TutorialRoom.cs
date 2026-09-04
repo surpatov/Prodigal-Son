@@ -9,6 +9,7 @@ public class TutorialRoom : MonoBehaviour
     [SerializeField] private Image messageImage;
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private TutorialRoom tutorialRoom;
+    [SerializeField] private Arrow[] arrows;
     private int currentMessageIndex;
     private Collider roomCollider;
 
@@ -48,6 +49,7 @@ public class TutorialRoom : MonoBehaviour
         {
             messageText.text = messages[currentMessageIndex];
             messageImage.gameObject.SetActive(true);
+            arrows[currentMessageIndex]?.gameObject.SetActive(true);
         }
         else
         {
