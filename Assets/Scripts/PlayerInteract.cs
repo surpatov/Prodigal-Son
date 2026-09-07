@@ -184,6 +184,10 @@ public class PlayerInteract : MonoBehaviour
         {
             trigger.Activate();
         }
+        if (TryGetComponent<TelephoneIntro>(out var telephoneIntro))
+        {
+            telephoneIntro.Activate(playerController);
+        }
         // Взаимодействие с компонентами
         HandleComponentInteractions();
 

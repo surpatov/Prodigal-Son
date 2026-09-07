@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     public bool canRotation;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Camera cameraHead;
-    [SerializeField] private GameObject cameraObject;
+    [SerializeField] public GameObject cameraObject; //
+    public GameObject CameraHead => cameraHead.gameObject;
     [SerializeField] private Animator animatorPlayer;
     [SerializeField] private Animator animatorCamera;
     [SerializeField] private bool isCrounch;
@@ -40,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
     private int tempIndex;
 
-    float xRotation = 0f;
-    float yRotation = 0f;
+    private float xRotation = 0f;
+    private float yRotation = 0f;
     void Start()
     {
         stamina = staminaMax;
