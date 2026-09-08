@@ -46,6 +46,8 @@ public class PlayerInteract : MonoBehaviour
     }
     private void Update()
     {
+        if (!playerController.canInteract) return;
+
         MenuViewer();
         offset = playerController.interactOffset;
         Debug.DrawRay(transform.position + offset, transform.forward, Color.red);

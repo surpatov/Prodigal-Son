@@ -32,6 +32,7 @@ public class TelephoneIntro : MonoBehaviour
 
         playerController.canWalk = false;
         playerController.canRotation = false;
+        playerController.canInteract = false;
 
         StartCoroutine(MonsterSpawn());
     }
@@ -51,6 +52,7 @@ public class TelephoneIntro : MonoBehaviour
             .OnComplete(() =>
             {
                 UpdateCameraXRotation();
+                playerController.CameraHead.GetComponent<Animator>().SetBool("isZoom", true);
             });
 
         Monster spawnedMonster = Instantiate(monster, monsterSpawnPoint.position, monsterSpawnPoint.rotation);
@@ -70,8 +72,10 @@ public class TelephoneIntro : MonoBehaviour
         spawnedMonster.enabled = true;
         spawnedMonster.animator.SetTrigger("RUN");
 
+        playerController.CameraHead.GetComponent<Animator>().SetBool("isZoom", false);
         playerController.canWalk = true;
         playerController.canRotation = true;
+        playerController.canInteract = true;
     }
 
     private void UpdateCameraXRotation()

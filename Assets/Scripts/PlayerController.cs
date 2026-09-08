@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float staminaMax;
     public bool canWalk;
     public bool canRotation;
+    public bool canInteract;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Camera cameraHead;
     [SerializeField] public GameObject cameraObject; //
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         //canRotation = true;
         sliderStamina.maxValue = staminaMax;
         sliderStamina.minValue = 0f;
+        //canInteract = true;
     }
     private void Update()
     {
@@ -61,7 +63,6 @@ public class PlayerController : MonoBehaviour
         hand.transform.position = cameraObject.transform.position + offsetHands;
         hand.transform.rotation = cameraObject.transform.rotation;
 
-        AnimatorChange();
         StaminaChange();
 
         if (canWalk)
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
         if (canRotation)
         {
             PlayerRotation();
+            AnimatorChange();
         }
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -95,6 +97,10 @@ public class PlayerController : MonoBehaviour
         if (other.GetComponent<TutorialRoom>())
         {
             other.GetComponent<TutorialRoom>().Enter();
+        }
+        if(other.GetComponent<BasementOutro>())
+        {
+            other.GetComponent<BasementOutro>().Activate(this);
         }
     }
     private void StaminaChange()
