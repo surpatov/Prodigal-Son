@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Slider sliderStamina;
     [SerializeField] public Canvas laterCanvas;
     [SerializeField] public Canvas canvas;
+    [SerializeField] public Canvas creditsCanvas;
 
     private int tempIndex;
 
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<Monster_trap>().MakeSound();
         }
+
         if (other.GetComponent<TutorialRoom>())
         {
             other.GetComponent<TutorialRoom>().Enter();
@@ -103,6 +105,10 @@ public class PlayerController : MonoBehaviour
         if(other.GetComponent<BasementOutro>())
         {
             other.GetComponent<BasementOutro>().Activate(this);
+        }
+        if(other.GetComponent<FinishOutro>())
+        {
+            other.GetComponent<FinishOutro>().Activate(this);
         }
     }
     private void StaminaChange()
