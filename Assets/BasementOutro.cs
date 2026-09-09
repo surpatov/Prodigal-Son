@@ -15,6 +15,9 @@ public class BasementOutro : MonoBehaviour
     [SerializeField] private float lookDuration2 = 1f;
     [SerializeField] private GameObject monster;
     [SerializeField] private Transform monsterSpawnPoint;
+    [SerializeField] private Transform playerFinishSpawn;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Camera finishCamera;
 
     PlayerController playerController;
 
@@ -71,13 +74,26 @@ public class BasementOutro : MonoBehaviour
             .OnComplete(() =>
             {
                 playerController.CameraHead.GetComponent<Animator>().SetTrigger("SHAKE");
+                StartCoroutine(PlayerReaction());
             });
     }
     private IEnumerator PlayerReaction()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         
         // анимация или что-то подобное смерти
-        // экран "later"
+        playerController.laterCanvas.gameObject.SetActive(true);
+        playerController.canvas.gameObject.SetActive(false);
+        // звук кинематографичный
+
+        yield return new WaitForSeconds(2f);
+
+        CanvasGroup canvasGroup = playerController.laterCanvas.GetComponent<CanvasGroup>();
+        finishCamera.gameObject.SetActive(true);
+        canvasGroup.DOFade(0f, 2f).OnComplete(() =>
+        {
+            Destroy(playerController.gameObject);
+        });
+        GameObject player = Instantiate(playerPrefab, playerFinishSpawn.position, playerFinishSpawn.rotation);
     }
 }

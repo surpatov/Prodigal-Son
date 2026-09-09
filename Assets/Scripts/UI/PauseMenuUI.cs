@@ -62,10 +62,6 @@ public class PauseMenuUI : MonoBehaviour
         toggleVSync.isOn = GameSettings.IsVSyncEnabled;
         dropdownFPS.value = GameSettings.CurrentFPSMode;
     }
-    private void Update()
-    {
-        UpdateSources();
-    }
 
     public void OnMusicSliderChanged()
     {
@@ -138,16 +134,5 @@ public class PauseMenuUI : MonoBehaviour
     public void MenuButton()
     {
         SceneManager.LoadScene("Main menu"); // сделать переход
-    }
-    private void UpdateSources()
-    {
-        foreach(var sound in soundsSources)
-        {
-            sound.GetComponent<AudioSource>().volume = GameSettings.SoundsVolume;
-        }
-        foreach(var music in musicSources)
-        {
-            music.GetComponent<AudioSource>().volume = GameSettings.MusicVolume;
-        }
     }
 }

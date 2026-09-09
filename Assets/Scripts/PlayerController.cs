@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canUpStamina;
     [SerializeField] private bool isUpNotFree;
     [SerializeField] private Slider sliderStamina;
+    [SerializeField] public Canvas laterCanvas;
+    [SerializeField] public Canvas canvas;
 
     private int tempIndex;
 
