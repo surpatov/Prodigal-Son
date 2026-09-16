@@ -10,6 +10,7 @@ public class MonsterPatrol : Monster_State
     private readonly Transform[] points;
     private Monster monster;
     private int temp;
+    private bool movingStarted;
     public MonsterPatrol(Monster_FSM fsm, NavMeshAgent agent, Animator animator, Transform[] points, Monster monster) : base(fsm)
     {
         this.agent = agent;
@@ -19,20 +20,31 @@ public class MonsterPatrol : Monster_State
     }
     public override void Enter()
     {
+        movingStarted = false;
         SetPoint();
         Debug.Log("Monster enter state: PATROL");
         animator.SetTrigger("WALK");
     }
+
     public override void Update()
     {
-        monster.Seek(true);
-        if(monster.IsNearToPoint(agent.destination))
+        // ∆дЄм, пока агент реально начнЄт двигатьс€ и путь построитс€
+        if (!movingStarted)
+        {
+            if (!agent.pathPending && agent.remainingDistance > agent.stoppingDistance)
+                movingStarted = true;
+            return;
+        }
+
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             if (monster.item != null)
                 fsm.SetState<MonsterDropItem>();
-            else fsm.SetState<MonsterLooking>();
-            agent.ResetPath();
+            else
+                fsm.SetState<MonsterLooking>();
         }
+
+        monster.Seek(true);
     }
     private void SetPoint()
     {

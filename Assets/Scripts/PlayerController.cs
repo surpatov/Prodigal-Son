@@ -110,6 +110,10 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<FinishOutro>().Activate(this);
         }
+        if(other.GetComponent<ActivateTrigger>())
+        {
+            other.GetComponent<ActivateTrigger>().Activate();
+        }
     }
     private void StaminaChange()
     {

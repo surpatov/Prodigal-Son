@@ -13,6 +13,7 @@ public class TelephoneIntro : MonoBehaviour
     [SerializeField] private Transform monsterSpawnPoint;
     [SerializeField] private Transform monsterGoPoint;
     [SerializeField] private Transform monsterRotatePoint;
+    [SerializeField] private Transform[] monsterPatrolPoints;
 
     private PlayerController playerController;
 
@@ -56,6 +57,7 @@ public class TelephoneIntro : MonoBehaviour
             });
 
         Monster spawnedMonster = Instantiate(monster, monsterSpawnPoint.position, monsterSpawnPoint.rotation);
+        spawnedMonster.SetPoints(monsterPatrolPoints);
         spawnedMonster.enabled = false;
         spawnedMonster.animator.SetTrigger("WALK");
         spawnedMonster.transform.DOMove(monsterGoPoint.position, 3f).SetEase(Ease.Linear).OnComplete(() =>
@@ -70,7 +72,7 @@ public class TelephoneIntro : MonoBehaviour
         yield return new WaitForSeconds(lookDuration + 4f);
 
         spawnedMonster.enabled = true;
-        spawnedMonster.animator.SetTrigger("RUN");
+        //spawnedMonster.animator.SetTrigger("RUN");
 
         playerController.CameraHead.GetComponent<Animator>().SetBool("isZoom", false);
         playerController.canWalk = true;

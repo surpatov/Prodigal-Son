@@ -37,5 +37,6 @@ public class MonsterLooking : Monster_State
     public override void Exit()
     {
         agent.isStopped = false;
+        //agent.ResetPath();   // добавить
     }
 }

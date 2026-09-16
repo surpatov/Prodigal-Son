@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
     [SerializeField] public Animator animator;
     public Monster_FSM fsm;
     [SerializeField] private Transform[] points;
+    public void SetPoints(Transform[] _points) => points = _points;
     [SerializeField] public GameObject head;
     [SerializeField] public GameObject hand;
     [SerializeField] public GameObject item;
@@ -47,6 +48,9 @@ public class Monster : MonoBehaviour
     [SerializeField] private AudioSource screamSource;
     [SerializeField] private AudioSource footSource;
 
+    [SerializeField] public Camera jumpscareCamera;
+    public float distanceToJumpscare = 0.3f;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
@@ -59,13 +63,18 @@ public class Monster : MonoBehaviour
         fsm.AddState(new MonsterAttack(fsm, agent, animator, gameObject.GetComponent<Monster>()));
         fsm.AddState(new MonsterDamaging(fsm, agent, animator, gameObject.GetComponent<Monster>(), pointDamaging));
 
-        fsm.SetState<MonsterPatrol>();
+        fsm.SetState<MonsterAttack>();
     }
     private void Update()
     {
         fsm.Update();
         DrawView();
         if (canTrappin) { TimeTickingTrap(); }
+    }
+    public void DeadScreen()
+    {
+        jumpscareCamera.transform.GetChild(0).gameObject.SetActive(true);
+        jumpscareCamera.cullingMask = LayerMask.GetMask("UI");
     }
     public void SetTimer() => timeLeftTrap = MAXTIMETRAP;
     private void DrawView()

@@ -18,6 +18,7 @@ public class BasementOutro : MonoBehaviour
     [SerializeField] private Transform playerFinishSpawn;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Camera finishCamera;
+    [SerializeField] private FinishOutro finishOutro;
 
     PlayerController playerController;
 
@@ -25,6 +26,7 @@ public class BasementOutro : MonoBehaviour
     {
         GetComponent<Collider>().enabled = false;
         playerController = _playerController;
+        finishOutro.gameObject.SetActive(true);
 
         audioSource?.PlayOneShot(noiseClip);
         door.transform.rotation = Quaternion.Euler(-89.98f, 0f, 0f);

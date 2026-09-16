@@ -1825,7 +1825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8319753944511982195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5351,8 +5351,9 @@ MonoBehaviour:
   canUpStamina: 0
   isUpNotFree: 0
   sliderStamina: {fileID: 8426061451912686046}
-  laterImage: {fileID: 3049205132180708834}
+  laterCanvas: {fileID: 2270471795697298908}
   canvas: {fileID: 8426061451282642683}
+  creditsCanvas: {fileID: 0}
 --- !u!143 &4907502953445222113
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7521,7 +7522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2160773633115963099
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10603,7 +10604,7 @@ MonoBehaviour:
   PixelMaskBrightness: 1.029
   IQOffset: {x: 0, y: 0}
   IQScale: {x: 1, y: 1}
-  RFNoise: 0.09
+  RFNoise: 0.03
   LumaSharpen: 0
   QuantizeRGB: 0
   RBits: 8
