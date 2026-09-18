@@ -8,7 +8,6 @@ public class TextView : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private TextMeshProUGUI textItem;
     public TextMeshProUGUI GetTextItem => textItem;
-    [SerializeField] private TextMeshProUGUI textNote;
     [SerializeField] private TextMeshProUGUI textDrop;
     RaycastHit hit;
     int layerMaskOnlyPlayer;
@@ -25,21 +24,22 @@ public class TextView : MonoBehaviour
     {
         if (Physics.Raycast(transform.position + GetComponent<PlayerInteract>().offset, transform.forward, out hit, 2f, layerMaskWithoutPlayer))
         {
-            if (hit.collider.gameObject.GetComponent<Item>()) { textItem.text = hit.collider.gameObject.GetComponent<Item>().GetName + " [LMB]"; }
-            else if (hit.collider.tag == "Pickapable") { textItem.text = "drag [LMB]"; }
-            else if(hit.collider.tag == "Door_Front" || hit.collider.tag == "Door_Back") { textItem.text = "push\n[LMB]/[RMB]"; } 
+            if (hit.collider.gameObject.GetComponent<Item>()) { textItem.text = hit.collider.gameObject.GetComponent<Item>().GetName; }
+            else if (hit.collider.tag == "Pickapable") { textItem.text = "drag"; }
+            else if(hit.collider.tag == "Door_Front" || hit.collider.tag == "Door_Back") { textItem.text = "push"; } 
             else if(hit.collider.tag == "Cupboard_door" || hit.collider.tag == "Comode")
             {
-                if (hit.collider.GetComponent<Animator>().GetBool("isOpen")) { textItem.text = "close [LMB]"; }
-                else { textItem.text = "open [LMB]"; }
+                if (hit.collider.GetComponent<Animator>().GetBool("isOpen")) { textItem.text = "close"; }
+                else { textItem.text = "open"; }
             }
-            else if (hit.collider.GetComponent<Note>()) { textNote.text = hit.collider.GetComponent<Note>().GetMessageText; }
-            else if (hit.collider.GetComponent<HidingPlace>()) { textItem.text = "hide [LMB]"; }
-            else { textItem.text = ""; textNote.text = ""; }
+            else if (hit.collider.GetComponent<Note>()) { textItem.text = "read"; }
+            else if (hit.collider.GetComponent<HidingPlace>()) { textItem.text = "hide"; }
+            else if(hit.collider.GetComponent<TelephoneIntro>()) { textItem.text = "mute call"; }
+            else { textItem.text = ""; }
         }
-        else { textItem.text = ""; textNote.text = ""; }
+        else { textItem.text = ""; }
 
-        if (inventory.GetCurrentItem) { textDrop.text = "drop " + inventory.GetCurrentItem.GetComponent<Item>().GetName + " [F]"; }
+        if (inventory.GetCurrentItem) { textDrop.text = "drop " + inventory.GetCurrentItem.GetComponent<Item>().GetName; }
         else { textDrop.text = ""; }
     }
 }

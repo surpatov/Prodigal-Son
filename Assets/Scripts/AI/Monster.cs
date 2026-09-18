@@ -17,6 +17,7 @@ public class Monster : MonoBehaviour
     [SerializeField] public GameObject hand;
     [SerializeField] public GameObject item;
     [SerializeField] private float timeLooking;
+    [SerializeField] private float timeStaying;
     [SerializeField] public float timePicking;
     [SerializeField] [Range(0, 360)] private float viewAngle;
     public float GetView => viewAngle;
@@ -51,6 +52,9 @@ public class Monster : MonoBehaviour
     [SerializeField] public Camera jumpscareCamera;
     public float distanceToJumpscare = 0.3f;
 
+    [SerializeField] public float progressBarSpeed = 0.3f;
+    [SerializeField] public float progressBarMinus = 0.9f;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
@@ -62,6 +66,8 @@ public class Monster : MonoBehaviour
         fsm.AddState(new MonsterLooking(fsm, agent, animator, timeLooking, gameObject.GetComponent<Monster>()));
         fsm.AddState(new MonsterAttack(fsm, agent, animator, gameObject.GetComponent<Monster>()));
         fsm.AddState(new MonsterDamaging(fsm, agent, animator, gameObject.GetComponent<Monster>(), pointDamaging));
+        fsm.AddState(new MonsterHold(fsm, agent, animator, gameObject.GetComponent<Monster>()));
+        fsm.AddState(new MonsterCoolDown(fsm, agent, animator, timeStaying, gameObject.GetComponent<Monster>()));
 
         fsm.SetState<MonsterAttack>();
     }

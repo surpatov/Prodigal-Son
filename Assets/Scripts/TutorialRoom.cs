@@ -28,7 +28,7 @@ public class TutorialRoom : MonoBehaviour
     private void Update()
     {
         if (!canShow) return;
-        if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.G) || ControllerInput.ADown())
         {
             ShowNextMessage();
         }

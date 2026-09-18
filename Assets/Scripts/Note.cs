@@ -27,9 +27,10 @@ public class Note : MonoBehaviour
         if(timeLeft <= 0)
             isInvinsible = false;
 
-        if(isReading && Input.GetKeyDown(KeyCode.Q))
+        if(isReading && (Input.GetKeyDown(KeyCode.Q) || ControllerInput.BDown()))
         {
             StopRead();
+            ControllerInput.Update();
         }
     }
     public void Pressing()

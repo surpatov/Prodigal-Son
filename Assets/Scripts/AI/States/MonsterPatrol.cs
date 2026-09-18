@@ -21,6 +21,7 @@ public class MonsterPatrol : Monster_State
     public override void Enter()
     {
         movingStarted = false;
+        //agent.isStopped = false;
         SetPoint();
         Debug.Log("Monster enter state: PATROL");
         animator.SetTrigger("WALK");

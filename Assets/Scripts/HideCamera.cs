@@ -9,7 +9,7 @@ public class HideCamera : MonoBehaviour
     private void Update()
     {
         RotateCamera();
-        if (Input.GetMouseButtonDown(1)) { hideCamera.GetOut(); }
+        if (Input.GetMouseButtonDown(1) || ControllerInput.BDown()) { hideCamera.GetOut(); }
     }
     private void RotateCamera()
     {

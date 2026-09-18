@@ -29,18 +29,14 @@ public class MonsterAttack : Monster_State
         monster.patience -= Time.deltaTime;
         if (monster.patience < 0 || player.activeInHierarchy == false)
         {
-            fsm.SetState<MonsterLooking>();
+            //monster.agent.ResetPath();
+            fsm.SetState<MonsterLooking>(); // надо фиксить
         }
 
         if(Vector3.Distance(monster.transform.position, player.transform.position) <= monster.distanceToJumpscare && monster.patience > 0)
         {
-            monster.jumpscareCamera.gameObject.SetActive(true);
-            monster.animator.SetTrigger("JUMPSCARE");
-            player.GetComponent<PlayerController>().canInteract = false;
-            player.GetComponent<PlayerController>().canRotation = false;
-            player.GetComponent<PlayerController>().canWalk = false;
-            player.GetComponent<PlayerController>().CameraHead.SetActive(false);
-            player.GetComponent<PlayerController>().canvas.gameObject.SetActive(false);
+            monster.fsm.SetState<MonsterHold>();
+
             //monster.jumpscareCamera.transform.position = player.GetComponent<PlayerController>().cameraObject.transform.position;
             //monster.jumpscareCamera.transform.DOLocalMove(new Vector3(0f, 0f, 0f), 0.4f).SetEase(Ease.InOutSine);
         }

@@ -55,7 +55,7 @@ public class HidingPlace : MonoBehaviour
         foreach (var camera in cameras) { camera.enabled = false; }
         player.gameObject.SetActive(false);
         textGUI = _text;
-        textGUI.text = "get out [RMB]";
+        textGUI.text = "get out";
     }
     public void GetOut()
     {

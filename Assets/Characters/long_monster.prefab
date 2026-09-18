@@ -1946,6 +1946,7 @@ MonoBehaviour:
   hand: {fileID: 4615264777970749131}
   item: {fileID: 0}
   timeLooking: 5.27
+  timeStaying: 5
   timePicking: 7.2
   viewAngle: 180
   speedRun: 3.5
@@ -1978,6 +1979,8 @@ MonoBehaviour:
   footSource: {fileID: 547463358}
   jumpscareCamera: {fileID: 2601728409071766221}
   distanceToJumpscare: 0.3
+  progressBarSpeed: 0.4
+  progressBarMinus: 0.08
 --- !u!114 &74254357912128184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,7 +2411,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 160
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -34,7 +34,7 @@ public class Shotgun : Item
         {
             //TargetCheck();
         }
-        if (Input.GetKeyDown(KeyCode.R) && isInHands)
+        if ((Input.GetKeyDown(KeyCode.R) || ControllerInput.XDown()) && isInHands)
         {
             if (isMuzzleOpen)
                 source.PlayOneShot(closeMuzzle);
@@ -42,7 +42,7 @@ public class Shotgun : Item
             animatorMuzzle.SetBool("isOpen", !animatorMuzzle.GetBool("isOpen"));
             isMuzzleOpen = animatorMuzzle.GetBool("isOpen");
         }
-        if (Input.GetMouseButtonDown(0) && !isMuzzleOpen && isInHands)
+        if ((Input.GetMouseButtonDown(0) || ControllerInput.GetRightTriggerDown()) && !isMuzzleOpen && isInHands)
         {
             Shoot();
         }
@@ -90,7 +90,7 @@ public class Shotgun : Item
     }
     private void Reload()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || ControllerInput.GetRightTriggerDown())
         {
             if (sleeHandlers[0].childCount == 0 && inventory.CountSellsNotNull() != 0)
             {
@@ -127,7 +127,7 @@ public class Shotgun : Item
                 ammunitionLeft += 1;
             }
         }
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0) || ControllerInput.GetLeftTriggerDown())
         {
             if (sleeHandlers[0].childCount == 1)
             {

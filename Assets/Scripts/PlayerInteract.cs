@@ -46,6 +46,8 @@ public class PlayerInteract : MonoBehaviour
     }
     private void Update()
     {
+        //ControllerInput.Update();
+
         if (!playerController.canInteract) return;
 
         MenuViewer();
@@ -58,7 +60,7 @@ public class PlayerInteract : MonoBehaviour
             HandleRaycastHit();
         else CameraObject.SetBool("isZoom", false);
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) || ControllerInput.BDown())
             inventory.DropItem(inventory.GetCurrentIndex());
     }
 
@@ -73,19 +75,19 @@ public class PlayerInteract : MonoBehaviour
         bool b = !inventory.GetCurrentItem;
         if (b || !b && a)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) || ControllerInput.GetRightTrigger())
                 HandleLeftMouseButton();
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) || ControllerInput.GetRightTriggerUp())
                 HandleLeftMouseButtonUp();
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || ControllerInput.GetRightTriggerDown())
                 HandleLeftMouseButtonDown();
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1) || ControllerInput.GetLeftTrigger())
                 HandleRightMouseButton();
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) || ControllerInput.GetLeftTriggerDown())
                 HandleRightMouseButtonDown();
         }
     }

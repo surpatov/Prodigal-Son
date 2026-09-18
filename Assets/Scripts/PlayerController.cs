@@ -42,6 +42,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Canvas laterCanvas;
     [SerializeField] public Canvas canvas;
     [SerializeField] public Canvas creditsCanvas;
+    [SerializeField] public Slider progressBarHold;
+    [SerializeField] public Transform holdMenu;
+    [SerializeField] public Transform gameplayMenu;
+
+    [Header("Gamepad Settings")]
+    [SerializeField] private float gamepadSensitivity = 1f; // Чувствительность геймпада
+    [SerializeField] private float gamepadDeadzone = 0.15f;   // Мёртвая зона стика
+    [SerializeField] private string gamepadXAxis = "Right Stick X"; // Или "Gamepad Right Stick X" 
+    [SerializeField] private string gamepadYAxis = "Right Stick Y";
 
     private int tempIndex;
 
@@ -61,6 +70,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        //ControllerInput.Update();
+
         sensivityRotation = GameSettings.MouseSensitivity;
         sliderStamina.value = stamina;
         hand.transform.position = cameraObject.transform.position + offsetHands;
@@ -139,7 +150,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SpeedChange()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || ControllerInput.L3())
         {
             canUpStamina = false;
             if (!isCrounch) // если игрок стоит
@@ -167,19 +178,19 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        else if (!Input.GetKey(KeyCode.LeftShift) && !isCrounch)
+        else if ((!Input.GetKey(KeyCode.LeftShift) || ControllerInput.L3()) && !isCrounch)
         {
             speedMoveCurrent = speedMoveMin;
         }
 
 
-        if (!Input.GetKey(KeyCode.LeftShift))
+        if (!Input.GetKey(KeyCode.LeftShift) || !ControllerInput.L3())
         {
             canUpStamina = true;
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || ControllerInput.R3Down())
         {
             if (!isCrounch)
             {
@@ -210,13 +221,42 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerRotation()
     {
+        // === Ввод мыши ===
         float mouseX = Input.GetAxis("Mouse X") * GameSettings.MouseSensitivity * Time.deltaTime * (GameSettings.IsXVert ? -1 : 1);
         float mouseY = Input.GetAxis("Mouse Y") * GameSettings.MouseSensitivity * Time.deltaTime * (GameSettings.IsYVert ? -1 : 1);
-        transform.Rotate(Vector2.up * mouseX * GameSettings.MouseSensitivity);
-        xRotation -= mouseY * GameSettings.MouseSensitivity;
-        yRotation += mouseX * GameSettings.MouseSensitivity;
+
+        // === Ввод геймпада ===
+        float gamepadX = Input.GetAxis(gamepadXAxis);
+        float gamepadY = Input.GetAxis(gamepadYAxis) * -1;
+
+        // Применяем мёртвую зону
+        gamepadX = ApplyDeadzone(gamepadX, gamepadDeadzone);
+        gamepadY = ApplyDeadzone(gamepadY, gamepadDeadzone);
+
+        // Геймпад использует "сырое" значение со временем, т.к. стик уже даёт плавное значение
+        gamepadX *= gamepadSensitivity * Time.deltaTime * (GameSettings.IsXVert ? -1 : 1);
+        gamepadY *= gamepadSensitivity * Time.deltaTime * (GameSettings.IsYVert ? -1 : 1);
+
+        // === Суммируем оба ввода ===
+        float totalX = mouseX + gamepadX;
+        float totalY = mouseY + gamepadY;
+
+        // === Применяем вращение ===
+        transform.Rotate(Vector2.up * totalX * GameSettings.MouseSensitivity);
+
+        xRotation -= totalY * GameSettings.MouseSensitivity;
+        yRotation += totalX * GameSettings.MouseSensitivity;
         xRotation = Mathf.Clamp(xRotation, -maxAngle, maxAngle);
+
         cameraObject.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+    }
+    private float ApplyDeadzone(float value, float deadzone)
+    {
+        if (Mathf.Abs(value) < deadzone) return 0f;
+
+        // Перенормировка: плавный переход от deadzone к 1
+        float sign = Mathf.Sign(value);
+        return sign * ((Mathf.Abs(value) - deadzone) / (1f - deadzone));
     }
     private void AnimatorChange()
     {
@@ -247,7 +287,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawRay(transform.position, new Vector3(0f, 1f, 0f), Color.green);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !Input.GetKey(KeyCode.LeftShift))
+        if ((Input.GetKeyDown(KeyCode.LeftControl) || ControllerInput.R3Down()) && (!Input.GetKey(KeyCode.LeftShift) || ControllerInput.L3()))
         {
             if (!isCrounch)
             {

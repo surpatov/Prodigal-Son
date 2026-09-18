@@ -198,14 +198,14 @@ public class Inventory : MonoBehaviour
     }
     public void SetIndex()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha1) && indexCurrent != 0)
+        if ((Input.GetKeyUp(KeyCode.Alpha1) || ControllerInput.LBDown()) && indexCurrent != 0)
         {
             handAnimator.SetTrigger("SETITEM");
             indexCurrent = 0;
             slotsUI[0].gameObject.SetActive(true);
             slotsUI[1].gameObject.SetActive(false);
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2) && indexCurrent != 1)
+        if ((Input.GetKeyUp(KeyCode.Alpha2) || ControllerInput.RBDown()) && indexCurrent != 1)
         {
             handAnimator.SetTrigger("SETITEM");
             indexCurrent = 1;
