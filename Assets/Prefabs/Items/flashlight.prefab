@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3444039763047780925
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3444039763047780924}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -232,6 +232,9 @@ MonoBehaviour:
   rootRotation: {x: 0, y: 0.7524149, z: 0, w: 0.6586895}
   isTook: 0
   shelfParent: {fileID: 0}
+  source: {fileID: 69184334222829049}
+  turnClip: {fileID: 8300000, guid: a9e1c18dd9e30264cb985bb52165cdd4, type: 3}
+  spotLight: {fileID: 3444039763047780926}
 --- !u!114 &69184334222829050
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,18 +54,6 @@ public class Inventory : MonoBehaviour
         }
         return count;
     }
-    private void SetRootCurrentSell()
-    {
-        if (currentSell)
-        {
-            var step = itemSetSpeed * Time.deltaTime;
-            currentSell.transform.localPosition = Vector3.MoveTowards(currentSell.transform.position, bulletsPlace.position, step);
-            if(Vector3.Distance(currentSell.transform.localPosition, bulletsPlace.position) < 0.1f)
-            {
-                currentSell.transform.parent = bulletsPlace.transform;
-            }
-        }
-    }
     private void SetRootSells()
     {
         foreach(var sell in bullets)
@@ -126,6 +114,8 @@ public class Inventory : MonoBehaviour
         }
         if (items[index].GetComponent<Detector>())
             items[index].GetComponent<Detector>().HandsTake(true);
+        else if (items[index].GetComponent<Flashlight>())
+            items[index].GetComponent<Flashlight>().TakeInHands();
     }
     private void ShootGunTake()
     {
@@ -170,11 +160,11 @@ public class Inventory : MonoBehaviour
         if(items[index] != null)
         {
             if (items[index].GetComponent<Shotgun>())
-            {
                 items[index].GetComponent<Shotgun>().TakeInHands();
-            }
-            if (items[index].GetComponent<Detector>())
+            else if (items[index].GetComponent<Detector>())
                 items[index].GetComponent<Detector>().HandsTake(false);
+            else if (items[index].GetComponent<Flashlight>())
+                items[index].GetComponent<Flashlight>().TakeInHands();
 
             items[index].GetComponent<Rigidbody>().useGravity = true;
             Collider[] colliders = items[index].GetComponents<Collider>();

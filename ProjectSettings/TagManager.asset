@@ -47,9 +47,9 @@ TagManager:
   - 
   - 
   - 
+  - MainPostProcessing
   - 
-  - 
-  - 
+  - PostProcessing
   - UserInterface
   m_SortingLayers:
   - name: Default
