@@ -1978,7 +1978,7 @@ MonoBehaviour:
   screamSource: {fileID: 547463364}
   footSource: {fileID: 547463358}
   jumpscareCamera: {fileID: 2601728409071766221}
-  distanceToJumpscare: 0.3
+  distanceToJumpscare: 1
   progressBarSpeed: 0.4
   progressBarMinus: 0.08
 --- !u!114 &74254357912128184

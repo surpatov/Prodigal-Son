@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using System.Collections;
+using UnityEngine.SceneManagement;
 public class CarControl : MonoBehaviour
 {
     [Header("Car Properties")]
@@ -22,6 +23,15 @@ public class CarControl : MonoBehaviour
 
     private Quaternion initialSteeringWheelRotation;
 
+    [SerializeField] private Canvas diedCanvas;
+    [SerializeField] private AudioClip crashClip;
+    [SerializeField] private AudioClip confuseClip;
+
+    [SerializeField] Camera mainCamera;
+    private bool stopDrive = false;
+
+    [SerializeField] private ParticleSystem smoke;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -38,6 +48,8 @@ public class CarControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (stopDrive) return;
+
         float vInput;
         if (isCarAutomatic) vInput = 1f;
         else vInput = Input.GetAxis("Vertical");
@@ -91,5 +103,42 @@ public class CarControl : MonoBehaviour
         // Сохраняем исходный поворот и применяем вращение вокруг локальной оси
         steeringWheel.localRotation = initialSteeringWheelRotation;
         steeringWheel.Rotate(-Vector3.forward, currentSteeringWheelAngle, Space.Self);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.impulse.magnitude > 0.1f)
+        {
+            smoke.gameObject.SetActive(true);
+            //smoke.
+            stopDrive = true;
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
+            AudioSource.PlayClipAtPoint(crashClip, transform.position, GameSettings.SoundsVolume);
+            AudioSource.PlayClipAtPoint(confuseClip, transform.position, GameSettings.SoundsVolume);
+            mainCamera.GetComponentInParent<CameraCar>().enabled = false;
+            mainCamera.GetComponent<Animator>().SetTrigger("CRASH");
+            steeringWheelSpeed = 0f;
+            if (collision.collider.CompareTag("RoadCollider"))
+            {
+                StartCoroutine(ChangeScene());
+            }
+            else
+            {
+                StartCoroutine(DeadScreen());
+            }
+        }
+    }
+    private IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(20.5f);
+
+        SceneManager.LoadScene("House");
+    }
+    private IEnumerator DeadScreen()
+    {
+        yield return new WaitForSeconds(20.5f);
+
+        diedCanvas.gameObject.SetActive(true);
     }
 }

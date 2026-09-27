@@ -58,7 +58,11 @@ public class PlayerInteract : MonoBehaviour
 
         if (Physics.Raycast(transform.position + offset, transform.forward, out hit, 2f, layerMaskWithoutPlayer))
             HandleRaycastHit();
-        else CameraObject.SetBool("isZoom", false);
+        else
+        {
+            CameraObject.SetBool("isZoom", false);
+            progressBar.gameObject.SetActive(false);
+        }
 
         if (Input.GetKey(KeyCode.F) || ControllerInput.BDown())
             inventory.DropItem(inventory.GetCurrentIndex());
@@ -109,7 +113,6 @@ public class PlayerInteract : MonoBehaviour
             keyholeControl.Open(playerController, inventory.GetCurrentItem, inventory);
         if(TryGetComponent<ValveControl>(out var valveControl))
             valveControl.Rotating(playerController, inventory.GetCurrentItem, inventory);
-
         if (TryGetComponent<Rope>(out var rope))
             rope.Cut(inventory, inventory.GetCurrentItem.GetComponent<Knife>());
         if (TryGetComponent<CardControl>(out var cardControl))
@@ -124,6 +127,11 @@ public class PlayerInteract : MonoBehaviour
             progressBar.gameObject.SetActive(true);
             progressBar.value = hidingPlace.GetProcessing();
         }
+        else
+        {
+            progressBar.gameObject.SetActive(false);
+        }
+
 
         // Взаимодействие с дверями по тегам
         switch (hit.collider.tag)
@@ -136,7 +144,7 @@ public class PlayerInteract : MonoBehaviour
             case "Door":
                 MoveDoorToHand(hit.collider);
                 break;
-        }
+            }
     }
 
     private void HandleLeftMouseButtonUp()
@@ -318,7 +326,7 @@ public class PlayerInteract : MonoBehaviour
     private void DragAndDropItems()
     {
         var t = transform;
-        var pressed = Input.GetMouseButton(0);
+        var pressed = Input.GetMouseButton(0) || ControllerInput.GetRightTrigger();
         if (holdObject)
         {
             var rigidbody = holdObject.GetComponent<Rigidbody>();

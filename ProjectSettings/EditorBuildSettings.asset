@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/House.unity
+    guid: cedb075392941b3448fd8c71abd78386
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: abf75a504dcb00340bac994e20987a3a
+  - enabled: 1
+    path: Assets/Scenes/Road.unity
+    guid: 51702eceecb6d07449a78b7aada0fb04
   m_configObjects: {}

@@ -18,6 +18,9 @@ TagManager:
   - WaterDamaged
   - CarBigDoor
   - RedButton
+  - RoadCollder
+  - RoadCollider
+  - Target
   layers:
   - Default
   - TransparentFX

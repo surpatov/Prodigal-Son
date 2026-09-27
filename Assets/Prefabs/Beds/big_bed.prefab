@@ -469,7 +469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: get out [RMB]
+  m_text: get out
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 82dfc5361e1d2654aa3b7cbc0cee421a, type: 2}
   m_sharedMaterial: {fileID: -5407828161873721393, guid: 82dfc5361e1d2654aa3b7cbc0cee421a, type: 2}
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.6
+  m_fontSize: 69.85
   m_fontSizeBase: 13.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -637,7 +637,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2147743743
+    m_Bits: 2148005887
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

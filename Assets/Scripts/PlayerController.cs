@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private LayerMask monsterLayer;
+    [SerializeField] private float detectionRadius = 5f;
+    [SerializeField] private PostProcessProfile profile;
+    private MotionBlur blur;
+    private DepthOfField depth;
     public bool IsCrounch => isCrounch;
     [SerializeField] public Vector3 interactOffset;
     [SerializeField] public PlayerInteract interact;
@@ -67,11 +74,13 @@ public class PlayerController : MonoBehaviour
         sliderStamina.maxValue = staminaMax;
         sliderStamina.minValue = 0f;
         //canInteract = true;
+
+        //profile.TryGetSettings(out depth);
+        profile.TryGetSettings(out blur);
+        blur.active = false;
     }
     private void Update()
     {
-        //ControllerInput.Update();
-
         sensivityRotation = GameSettings.MouseSensitivity;
         sliderStamina.value = stamina;
         hand.transform.position = cameraObject.transform.position + offsetHands;
@@ -89,6 +98,17 @@ public class PlayerController : MonoBehaviour
         {
             PlayerRotation();
             AnimatorChange();
+        }
+
+        if (IsMonsterNearby())
+        {
+            //depth.active = true;
+            blur.active = true;
+        }
+        else
+        {
+            //depth.active = false;
+            blur.active = false;
         }
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -317,5 +337,18 @@ public class PlayerController : MonoBehaviour
                 tempIndex = index;
             }
         }
+    }
+    public bool IsMonsterNearby()
+    {
+        // OverlapSphere возвращает все коллайдеры в радиусе
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius, monsterLayer);
+
+        foreach (var hit in hits)
+        {
+            // Проверяем, есть ли на объекте (или его родителях) компонент Monster
+            if (hit.GetComponentInParent<Monster>() != null)
+                return true;
+        }
+        return false;
     }
 }
